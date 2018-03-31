@@ -12,6 +12,11 @@ class User(Base):
     username = Column(String(32), index=True)
     password_hash = Column(String(64))
 
+    def hash_password(self, password):
+        self.password_hash = pwd_context.encrypt(password)
+
+
+
 engine = create_engine('sqlite:///users.db')
 
 Base.metadata.create_all(engine)
