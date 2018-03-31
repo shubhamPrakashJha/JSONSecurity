@@ -6,7 +6,8 @@ from passlib.apps import custom_app_context as pwd_context
 
 Base = declarative_base()
 
-
+class User(Base):
+    __tablename__ = 'user'
 
 engine = create_engine('sqlite:///users.db')
 
